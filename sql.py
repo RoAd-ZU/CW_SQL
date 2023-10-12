@@ -75,6 +75,7 @@ class DBManager:
 
     def get_companies_and_vacancies_count(self):
         '''Получает список всех компаний и количество вакансий у каждой компании.'''
+
         conn = psycopg2.connect(host='localhost', database='cw5', user='postgres', password=self.password)
         try:
             with conn:
@@ -92,6 +93,7 @@ class DBManager:
 
     def get_all_vacancies(self):
         '''Получает список всех вакансий с указанием названия компании, названия вакансии и зарплаты и ссылки на вакансию.'''
+
         conn = psycopg2.connect(host='localhost', database='cw5', user='postgres', password=self.password)
         try:
             with conn:
@@ -105,6 +107,7 @@ class DBManager:
 
     def get_avg_salary(self):
         '''Получает среднюю зарплату по вакансиям.'''
+
         conn = psycopg2.connect(host='localhost', database='cw5', user='postgres', password=self.password)
         try:
             with conn:
@@ -117,6 +120,7 @@ class DBManager:
 
     def get_vacancies_with_higher_salary(self):
         '''Получает список всех вакансий, у которых минимальная зарплата выше средней по всем вакансиям.'''
+
         conn = psycopg2.connect(host='localhost', database='cw5', user='postgres', password=self.password)
         dbm = DBManager(self.password)
         avg_salary_f = dbm.get_avg_salary()[0][0]
@@ -131,6 +135,7 @@ class DBManager:
 
     def get_vacancies_with_keyword(self, keyword):
         '''Получает список всех вакансий, в названии которых содержатся переданные в метод слова'''
+
         conn = psycopg2.connect(host='localhost', database='cw5', user='postgres', password=self.password)
         try:
             with conn:

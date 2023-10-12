@@ -3,7 +3,7 @@ from exeption import ParsingError
 
 
 class Get_employers():
-    """Обращается к сайту HeadHunter и возвращает информацию о работодателе"""
+    '''Обращается к сайту HeadHunter и возвращает информацию о работодателе'''
 
     def __init__(self, emp_id: str):
         self.url = 'https://api.hh.ru/employers/' + emp_id
@@ -16,7 +16,8 @@ class Get_employers():
 
 
 class Get_vacancies():
-    """Обращается к сайту HeadHunter и возвращает информацию о вакансиях выбранных работодателей"""
+    '''Обращается к сайту HeadHunter и возвращает информацию о вакансиях выбранных работодателей'''
+
     url = 'https://api.hh.ru/vacancies'
 
     def __init__(self, employer_id):
