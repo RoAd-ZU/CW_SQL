@@ -1,6 +1,7 @@
 import requests
 from exeption import ParsingError
 
+
 class Get_employers():
     """Обращается к сайту HeadHunter и возвращает информацию о работодателе"""
 
@@ -15,11 +16,14 @@ class Get_employers():
 
 
 class Get_vacancies():
+    """Обращается к сайту HeadHunter и возвращает информацию о вакансиях выбранных работодателей"""
     url = 'https://api.hh.ru/vacancies'
+
     def __init__(self, employer_id):
         self.employer_id = employer_id
         self.parametrs = {'per_page': 50,
                           'employer_id': self.employer_id,
+                          "currency": "RUR",
                           'only_with_salary': True,
                           'archived': False}
 
@@ -28,4 +32,3 @@ class Get_vacancies():
         if response.status_code != 200:
             raise ParsingError(f"Возникла ошибка {response.status_code}")
         return response.json()['items']
-
